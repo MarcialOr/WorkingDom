@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Productos</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background: url('./src/img/carousel/ftcms_aedd4a34-5d61-4651-9567-cdb67edf03f8.avif') center center no-repeat;
+            background-size: cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card {
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        .modal-body img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .btn-add-product {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+   <!-- Barra de navegación -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mi Tienda</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                    <li class="nav-item">
+                        <a id="change-color-btn" class="btn btn-primary" href="#product-section">Productos</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Encabezado -->
+    <header>
+        <h1>Tienda de Productos</h1>
+    </header>
+
+    <!-- Sección de productos -->
+    <section id="product-section" class="py-5">
+        <div class="container">
+            <h2 class="mb-4 text-center">Nuestros Productos</h2>
+
+            <!-- Botón para agregar nuevos productos -->
+            <button type="button" class="btn btn-primary btn-add-product" data-bs-toggle="modal" data-bs-target="#productModal">
+                Agregar Producto
+            </button>
+
+            <!-- Contenedor de productos en columnas de 3 -->
+            <div id="product-list" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+                <!-- Las cards de productos se generan dinámicamente desde JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Mi Tienda - Todos los derechos reservados.</p>
+            <p>
+                <a href="#" class="text-white mx-2">Política de privacidad</a> |
+                <a href="#" class="text-white mx-2">Términos y condiciones</a>
+            </p>
+        </div>
+    </footer>
+
+    
+    <!-- Modal para agregar productos -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Agregar nuevo producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="productForm">
+                        <div class="mb-3">
+                            <label for="productName" class="form-label">Nombre del producto</label>
+                            <input type="text" class="form-control" id="productName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productDescription" class="form-label">Descripción</label>
+                            <textarea class="form-control" id="productDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productPrice" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="productPrice" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productImage" class="form-label">URL de la imagen</label>
+                            <input type="url" class="form-control" id="productImage" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar Producto</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conexión al archivo JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
